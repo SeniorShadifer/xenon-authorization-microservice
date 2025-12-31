@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"log"
-	"net/smtp"
 	"os"
 )
 
@@ -33,7 +32,7 @@ func main() {
 		SMTPPassword:      "Admin",
 		SMTPHost:          "localhost",
 		SMTPPort:          "587",
-		SMTPSenderAddress: "xenon_authorization_nicroservice@example.com",
+		SMTPSenderAddress: "xenon_authorization_microservice@example.com",
 	}
 
 	content, err := os.ReadFile(SETTINGS_FILE_PATH)
@@ -58,9 +57,9 @@ func main() {
 		}
 	}
 
-	auth := smtp.PlainAuth("", settings.SMTPUserName, settings.SMTPPassword, settings.SMTPHost)
+	/*auth := smtp.PlainAuth("", settings.SMTPUserName, settings.SMTPPassword, settings.SMTPHost)
 
-	to := "discordeg@mail.ru"
+	to := "test@example.com"
 	msg := []byte("To: " + to + "\r\n" +
 		"Subject: TEST SUBJECT\r\n" +
 		"\r\n" +
@@ -70,5 +69,5 @@ func main() {
 		log.Fatal("Cannot send mail:", err)
 	}
 
-	log.Println("Message sent successfully!")
+	log.Println("Message sent successfully!")*/
 }
